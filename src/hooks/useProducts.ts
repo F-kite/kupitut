@@ -5,7 +5,7 @@ export const useProducts = () => {
     const [products, setProducts] = useState<any[]>([])
 
     const getProducts = async () => {
-        const { data, error } = await supabase
+        const { data } = await supabase
             .from("products")
             .select("*")
 
