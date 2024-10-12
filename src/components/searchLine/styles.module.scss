@@ -1,0 +1,34 @@
+.body { 
+    background: #217dd9; 
+    padding: 2px; 
+    border-radius: 16px; 
+    display: flex; 
+    align-items: flow; 
+   
+    > input { 
+      border: none; 
+      border-radius: 14px; 
+      padding: 16px 8px; 
+      font-size: 16px; 
+      width: 100%; 
+   
+      &:focus { 
+        outline: none; 
+      } 
+    } 
+   
+    > button { 
+      background: transparent; 
+      border: none; 
+      cursor: pointer; 
+      font-size: 16px; 
+      color: #fff; 
+      transition: 0.2s; 
+      border-radius: 14px; 
+      margin-left: 2px; 
+   
+      &:hover { 
+        background: #ffffff22; 
+      } 
+    } 
+  }

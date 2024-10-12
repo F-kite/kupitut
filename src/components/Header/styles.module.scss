@@ -1,0 +1,30 @@
+.body { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+   
+    > nav { 
+      display: flex; 
+      gap: 15px; 
+      
+      > a {
+        text-align: center;
+      }
+    } 
+   
+    > div { 
+      flex-grow: 1; 
+      margin: 0 32px; 
+    } 
+  } 
+   
+.logo { 
+  display: flex;
+  align-items: center;
+  border-radius:50%;
+  overflow: hidden  ;
+}
+
+.barText{
+  margin: 0;
+}
