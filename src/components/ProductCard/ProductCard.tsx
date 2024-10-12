@@ -1,4 +1,4 @@
-import styles from "../productCard/styles.module.scss";
+import styles from "./styles.module.scss";
 
 export default function ProductCard({ product }: any) {
 
