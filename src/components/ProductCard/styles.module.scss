@@ -7,8 +7,10 @@
     >.imgContainer {
         border-radius: 10px;
         width: 70%;
+        height: 300px;
         overflow: hidden;
-
+        display: flex;
+        align-items: center;
         >img {
             width: 100%;
         }
@@ -24,6 +26,29 @@
 
         >p {
             margin: 0;
+        }
+
+        >.button{
+            height: 40px;
+            border-radius: 8px;
+            background-color: rgb(76, 68, 108);
+            color:white;
+            font-weight: 400;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        >.price{
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+        >.seller{
+            font-size: 16px;
+        }
+
+        .name{
+            font-size: 16px;
         }
     }
 }

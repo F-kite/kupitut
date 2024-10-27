@@ -5,7 +5,7 @@ export const useViews = () => {
     const [views, setViews] = useState<any[]>([])
 
     const getViews = async () => {
-        const { data } = await supabase
+        const { data, error } = await supabase
             .from("views")
             .select("*")
 

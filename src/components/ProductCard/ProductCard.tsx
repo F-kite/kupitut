@@ -1,19 +1,24 @@
-import styles from "./styles.module.scss";
+import { MouseEvent } from "react";
+import styles from "../productCard/styles.module.scss";
 
 export default function ProductCard({ product }: any) {
-
+  function handleClick(e: MouseEvent<HTMLElement>) {
+    e.preventDefault();
+    console.log("Click");
+  }
   return (
-    <a className={styles.body} href={`/product/124`}>
+    //product/123
+    <a className={styles.body} href={`#`}>
       <div className={styles.imgContainer}>
-        <img
-          src={product.productimage}
-          alt=""
-        />
+        <img src={product.productimage} alt="" />
       </div>
       <div className={styles.cardText}>
-        <p>{product.productseller}</p>
-        <p>{product.productname}</p>
         <p className={styles.price}>{product.productcost} ₽</p>
+        <p className={styles.seller}>{product.productseller}</p>
+        <p className={styles.name}>{product.productname}</p>
+        <button className={styles.button} onClick={handleClick}>
+          В корзину
+        </button>
       </div>
     </a>
   );

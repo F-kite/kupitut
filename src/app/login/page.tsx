@@ -17,7 +17,7 @@ export default function Login() {
 
     const login = async () => {
         try {
-            let { data: dataUser } = await supabase.auth.signInWithPassword({
+            let { data: dataUser, error } = await supabase.auth.signInWithPassword({
                 email: data.email,
                 password: data.password
             })
