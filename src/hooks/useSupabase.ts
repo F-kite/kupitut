@@ -27,7 +27,7 @@ export const useSupabase = () => {
     }
 
     const setSession = async (access_token: string, refresh_token: string) => {
-        const { data, error } = await supabase.auth.setSession({
+        await supabase.auth.setSession({
             access_token,
             refresh_token
         })

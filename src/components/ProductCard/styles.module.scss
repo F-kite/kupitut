@@ -11,6 +11,7 @@
         overflow: hidden;
         display: flex;
         align-items: center;
+
         >img {
             width: 100%;
         }
@@ -28,26 +29,23 @@
             margin: 0;
         }
 
-        >.button{
+        >.button {
             height: 40px;
             border-radius: 8px;
             background-color: rgb(76, 68, 108);
-            color:white;
+            color: white;
             font-weight: 400;
             font-size: 16px;
             cursor: pointer;
             z-index: 1;
         }
-        >.price{
+
+        >.price {
             font-size: 25px;
             font-weight: 500;
         }
 
-        >.seller{
-            font-size: 16px;
-        }
-
-        .name{
+        .name {
             font-size: 16px;
         }
     }

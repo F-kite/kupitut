@@ -7,16 +7,11 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header/Header";
 import ProductCard from "../components/ProductCard/ProductCard";
 import "./globals.css";
-import { serialize } from "v8";
 
 export default function Home() {
   const { getSession } = useSupabase();
 
   const { products, getProducts } = useProducts();
-  const { cart, setCart } = useState({
-    cart: String,
-    setCart: String,
-  });
 
   useEffect(() => {
     getSession(), getProducts();

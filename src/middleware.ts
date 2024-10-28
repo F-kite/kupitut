@@ -11,7 +11,9 @@ export async function middleware(req: NextRequest) {
         }
     } = await supabase.auth.getSession()
 
-    if (!session) {
+    const publicPaths = ['/login', '/register'];
+
+    if (!session && !publicPaths.includes(req.nextUrl.pathname)) {
         return NextResponse.rewrite(new URL('/login', req.url));
     }
 

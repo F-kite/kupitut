@@ -1,10 +1,21 @@
 import styles from "./styles.module.scss";
 import SearchLine from "../searchLine";
 import Image from "next/image";
+import { supabase } from "@/lib/supabase";
 
 export default function Header() {
   let emptyCart: boolean = true;
 
+  async function logoutUser() {
+    try {
+      const { error } = await supabase.auth.signOut()
+      if (error) throw error
+      location.reload()
+    } catch (e) {
+      throw e
+    }
+
+  }
   return (
     <header className={styles.body}>
       <a href="/" className={styles.logo}>
@@ -39,6 +50,9 @@ export default function Header() {
           )}
           <p className={styles.barText}>Корзина</p>
         </a>
+        <button onClick={logoutUser}>
+          Выход
+        </button>
       </nav>
     </header>
   );
