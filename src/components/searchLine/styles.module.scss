@@ -1,6 +1,6 @@
 .body { 
-    background: #217dd9; 
-    padding: 2px; 
+    background: rgb(76, 68, 108); 
+    padding: 3px; 
     border-radius: 16px; 
     display: flex; 
     align-items: flow; 
@@ -8,8 +8,8 @@
     > input { 
       border: none; 
       border-radius: 14px; 
-      padding: 16px 8px; 
-      font-size: 16px; 
+      padding: 15px 8px; 
+      font-size: 18px; 
       width: 100%; 
    
       &:focus { 
@@ -21,11 +21,12 @@
       background: transparent; 
       border: none; 
       cursor: pointer; 
-      font-size: 16px; 
+      font-size: 18px; 
       color: #fff; 
       transition: 0.2s; 
       border-radius: 14px; 
       margin-left: 2px; 
+      padding: 5px;
    
       &:hover { 
         background: #ffffff22; 

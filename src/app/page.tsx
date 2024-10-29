@@ -9,8 +9,9 @@ import ProductCard from "../components/ProductCard/ProductCard";
 import "./globals.css";
 
 export default function Home() {
+  const [order, setOrder] = useState<number>(0);
+  const [favourite, setFavourite] = useState<number>(0);
   const { getSession } = useSupabase();
-
   const { products, getProducts } = useProducts();
 
   useEffect(() => {
@@ -20,10 +21,17 @@ export default function Home() {
   return (
     <div className="App">
       <div className="container">
-        <Header />
+        <Header order={order} favourite={favourite} />
         <div className="products">
           {products.map((product: any, key: number) => (
-            <ProductCard key={key} product={product} />
+            <ProductCard
+              key={key}
+              product={product}
+              order={order}
+              setOrder={setOrder}
+              favourite={favourite}
+              setFavourite={setFavourite}
+            />
           ))}
         </div>
       </div>

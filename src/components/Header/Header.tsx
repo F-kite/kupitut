@@ -3,18 +3,15 @@ import SearchLine from "../searchLine";
 import Image from "next/image";
 import { supabase } from "@/lib/supabase";
 
-export default function Header() {
-  let emptyCart: boolean = true;
-
+export default function Header({ order, favourite }: any) {
   async function logoutUser() {
     try {
-      const { error } = await supabase.auth.signOut()
-      if (error) throw error
-      location.reload()
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+      location.reload();
     } catch (e) {
-      throw e
+      throw e;
     }
-
   }
   return (
     <header className={styles.body}>
@@ -24,34 +21,47 @@ export default function Header() {
       <SearchLine className={styles.search} />
       <nav className={styles.nav}>
         <a href="/favourites">
-          <Image
-            src={"/favourite.svg"}
-            width={40}
-            height={40}
-            alt="Избранное"
-          />
-          <p className={styles.barText}>Избранное</p>
-        </a>
-        <a href="/cart">
-          {emptyCart ? (
-            <Image
-              src={"/cart_empty.svg"}
-              width={40}
-              height={40}
-              alt="Корзина"
-            />
+          {favourite ? (
+            <div className={styles.cartContainer}>
+              <Image
+                src={"/favourite.svg"}
+                width={45}
+                height={45}
+                alt="Избранное"
+              />
+              <p className={styles.cartContainerCount}>{favourite}</p>
+            </div>
           ) : (
             <Image
-              src={"/cart_full.svg"}
-              width={40}
-              height={40}
+              src={"/favourite.svg"}
+              width={45}
+              height={45}
+              alt="Избранное"
+            />
+          )}
+        </a>
+        <a href="/cart">
+          {order ? (
+            <div className={styles.cartContainer}>
+              <Image
+                src={"/cart_full.svg"}
+                width={45}
+                height={45}
+                alt="Корзина"
+              />
+              <p className={styles.cartContainerCount}>{order}</p>
+            </div>
+          ) : (
+            <Image
+              src={"/cart_empty.svg"}
+              width={45}
+              height={45}
               alt="Корзина"
             />
           )}
-          <p className={styles.barText}>Корзина</p>
         </a>
-        <button onClick={logoutUser}>
-          Выход
+        <button onClick={logoutUser} className={styles.button}>
+          <Image src={"/logout.svg"} width={45} height={45} alt="Выход" />
         </button>
       </nav>
     </header>

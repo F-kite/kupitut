@@ -28,3 +28,22 @@
 .barText{
   margin: 0;
 }
+
+.button{
+  transform: rotate(180deg);
+}
+
+.cartContainer{
+  position: relative;
+}
+
+.cartContainerCount{
+  position: absolute;
+  top:-25%;
+  left: 75%;
+  width: 22px;
+  height: 22px;
+  background:rgb(249, 17, 85);
+  color:white;
+  border-radius: 50%; 
+}
