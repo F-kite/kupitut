@@ -25,7 +25,7 @@ export default function ProductCard({
     e.preventDefault();
     isClickedCart ? setOrder(order - 1) : setOrder(order + 1);
     setIsClickedCart(!isClickedCart);
-    console.log("Click! add to cart");
+    console.log(product.productname);
   }
 
   function addToFavourite(e: MouseEvent<HTMLElement>) {
@@ -36,8 +36,7 @@ export default function ProductCard({
   }
 
   return (
-    //product/123
-    <a className={styles.body} href={`#`}>
+    <a className={styles.body} href={`/product?id=${product.id}`}>
       <div
         className={styles.favourite}
         onClick={addToFavourite}
@@ -61,7 +60,10 @@ export default function ProductCard({
       <div className={styles.cardText}>
         <p className={styles.price}>{product.productcost} ₽</p>
         <p className={styles.name}>{product.productname}</p>
-        <button className={styles.button} onClick={addToCart}>
+        <button
+          className={isClickedCart ? styles.buttonClicked : styles.button}
+          onClick={addToCart}
+        >
           {isClickedCart ? "Уже в корзине" : "В корзину"}
         </button>
       </div>
