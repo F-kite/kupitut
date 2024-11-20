@@ -15,13 +15,18 @@ export default function Home() {
   const { products, getProducts } = useProducts();
 
   useEffect(() => {
-    getSession(), getProducts();
+    getSession(), getProducts("");
   }, []);
+
+  const handleSearch = (query: string) => {
+    const filteredProducts = query.toLowerCase();
+    getProducts(filteredProducts);
+  };
 
   return (
     <div className="App">
       <div className="container">
-        <Header order={order} favourite={favourite} />
+        <Header order={order} favourite={favourite} handleSearch={handleSearch} />
         <div className="products">
           {products.map((product: any, key: number) => (
             <ProductCard

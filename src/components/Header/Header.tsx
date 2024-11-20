@@ -3,7 +3,8 @@ import SearchLine from "../searchLine";
 import Image from "next/image";
 import { supabase } from "@/lib/supabase";
 
-export default function Header({ order, favourite }: any) {
+export default function Header({ order, favourite, handleSearch }: any) {
+
   async function logoutUser() {
     try {
       const { error } = await supabase.auth.signOut();
@@ -13,12 +14,13 @@ export default function Header({ order, favourite }: any) {
       throw e;
     }
   }
+
   return (
     <header className={styles.body}>
       <a href="/" className={styles.logo}>
         <Image src={"/logo.svg"} width={56} height={56} alt="KupiTut" />
       </a>
-      <SearchLine className={styles.search} />
+      <SearchLine className={styles.search} onSearch={handleSearch} />
       <nav className={styles.nav}>
         <a href="/favourites">
           {favourite ? (

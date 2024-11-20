@@ -1,5 +1,5 @@
 import { MouseEvent, useEffect, useState } from "react";
-import styles from "../productCard/styles.module.scss";
+import styles from "./styles.module.scss";
 import Image from "next/image";
 
 export default function ProductCard({ product, setOrder, setFavourite }: any) {

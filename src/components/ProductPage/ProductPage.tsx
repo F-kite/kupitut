@@ -2,7 +2,7 @@
 import { useSearchParams } from "next/navigation";
 import { useProducts } from "@/hooks/useProducts";
 import { useEffect, useState } from "react";
-import styles from "../productCard/styles.module.scss";
+import styles from "./styles.module.scss";
 
 /*
 Название: {product.name}
@@ -14,7 +14,7 @@ import styles from "../productCard/styles.module.scss";
 Количество: {product.quantity}
 */
 
-export default function ProductPage({}) {
+export default function ProductPage({ }) {
   const { products, getProducts } = useProducts();
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(true);
