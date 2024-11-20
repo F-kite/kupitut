@@ -56,11 +56,11 @@ export default function ProductCard({
         />
       </div>
       <div className={styles.imgContainer}>
-        <img src={product.productimage} alt="" />
+        <img src={product.image} alt="" />
       </div>
       <div className={styles.cardText}>
-        <p className={styles.price}>{product.productcost} ₽</p>
-        <p className={styles.name}>{product.productname}</p>
+        <p className={styles.price}>{product.price} ₽</p>
+        <p className={styles.name}>{product.name}</p>
         <button className={styles.button} onClick={addToCart}>
           {isClickedCart ? "Уже в корзине" : "В корзину"}
         </button>
