@@ -44,6 +44,22 @@
             font-size: 16px;
             cursor: pointer;
             z-index: 1;
+            
+            &:hover{
+                background-color: rgb(21, 37, 68);;
+            }
+        }
+
+        >.buttonClicked{
+            height: 40px;
+            border-radius: 8px;
+            background-color: rgb(21, 37, 68);;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 1;
+            
         }
 
         >.price {

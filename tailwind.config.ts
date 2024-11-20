@@ -42,6 +42,13 @@ module.exports = {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
 				},
+				customPurple:{
+					DEFAULT:'#4C446C',
+					foregrond:'#45374F',
+				},
+				customPurpleHover:{
+					DEFAULT:"#45374F",
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
