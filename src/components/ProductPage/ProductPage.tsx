@@ -1,70 +1,53 @@
-"use client";
-import { useSearchParams } from "next/navigation";
-import { useProducts } from "@/hooks/useProducts";
-import { useEffect, useState } from "react";
-import styles from "../productCard/styles.module.scss";
+'use client'
+import { Product } from '@/types/product'
+import Image from 'next/image'
+import CartButton from '../cartButton'
+import Container from '../container'
+import FavoriteButton from '../favoriteButton'
+import Header from '../Header/Header'
+import styles from './styles.module.scss'
 
-/*
-Название: {product.name}
-Продавец: {product.seller}
-Цена: {product.price}
-Информация: {product.info}
-Характеристика: {product.specifications} Пункты разделены символом ';'
-Фотография: {product.image}
-Количество: {product.quantity}
-*/
-
-export default function ProductPage({}) {
-  const { products, getProducts } = useProducts();
-  const searchParams = useSearchParams();
-  const [loading, setLoading] = useState(true);
-  const [isToFavourite, setIsToFavourite] = useState(false);
-  const [isToCart, setIsToCart] = useState(false);
-
-  const id: number = Number(searchParams.get("id"));
-  const product = id ? products[id - 1] : null;
-
-  console.debug(products);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      await getProducts();
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && product) {
-      setIsToFavourite(localStorage.idFavProducts?.includes(product?.id));
-      setIsToCart(localStorage.idCartProducts?.includes(product?.id));
-    }
-  }, [product]);
-
-  if (loading) {
-    return <p>Загрузка...</p>;
-  }
-
-  return (
-    <div>
-      <p>Карточка товара</p>
-      {product ? (
-        <ul>
-          <li>Название: {product.name}</li>
-          <li>Цена: {product.price}</li>
-          <li>Продавец: {product.seller}</li>
-          <li>Информация: {product.info}</li>
-          <li>Характеристика: {product.specifications}</li>
-          <li>Фотография: {product.image}</li>
-          <li>Количество: {product.quantity}</li>
-        </ul>
-      ) : (
-        <p>Товар не найден</p>
-      )}
-      <ul>
-        <li>В избранном {isToFavourite.toString()}</li>
-        <li>В корзине {isToCart.toString()}</li>
-      </ul>
-    </div>
-  );
+export default function ProductInfo({ product }: { product: Product }) {
+	return (
+		<Container>
+			<Header />
+			<main className={styles.body}>
+				<div className={styles.info}>
+					<div className={styles.img}>
+						<Image
+							src={product.image}
+							alt={product.name}
+							width={1000}
+							height={600}
+						/>
+					</div>
+					<div className={styles.buy}>
+						<h1 className={styles.title}>{product.name}</h1>
+						<p className={styles.price}>{product.price} ₽</p>
+						<div className={styles.buttons}>
+							<CartButton productId={product.id} className={styles.cartBtn} />
+							<FavoriteButton
+								productId={product.id}
+								className={styles.favoriteBtn}
+							/>
+						</div>
+						<div className={styles.description}>
+							<p className={styles.seller}>
+								<span className={styles.label}>Продавец</span>
+								<span className={styles.text}>{product.seller}</span>
+							</p>
+							<p className={styles.information}>
+								<span className={styles.label}>Описание</span>
+								<span className={styles.text}>{product.info}</span>
+							</p>
+							<p className={styles.left}>
+								<span className={styles.label}>Осталось</span>
+								<span className={styles.text}>{product.quantity}шт</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</main>
+		</Container>
+	)
 }
