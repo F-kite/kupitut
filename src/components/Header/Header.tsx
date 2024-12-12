@@ -8,7 +8,11 @@ import Link from 'next/link'
 import SearchLine from '../searchLine'
 import styles from './styles.module.scss'
 
-export default function Header() {
+interface HeaderProps {
+	onSearch: (query: string) => void; // Функция для обработки поиска
+}
+
+export default function Header({ onSearch }: HeaderProps) {
 	const { cart } = useCartStore()
 	const { favorites } = useFavoriteStore()
 
@@ -26,7 +30,7 @@ export default function Header() {
 			<Link href='/' className={styles.logo}>
 				<Image src={'/logo.svg'} width={56} height={56} alt='KupiTut' />
 			</Link>
-			<SearchLine className={styles.search} />
+			<SearchLine className={styles.search} onSearch={onSearch} />
 			<nav className={styles.nav}>
 				<Link href='/favourites'>
 					{favorites.length ? (

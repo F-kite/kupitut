@@ -1,35 +1,35 @@
-.body { 
-    background: rgb(76, 68, 108); 
-    padding: 3px; 
-    border-radius: 16px; 
-    display: flex; 
-    align-items: flow; 
-   
-    > input { 
-      border: none; 
-      border-radius: 14px; 
-      padding: 15px 8px; 
-      font-size: 18px; 
-      width: 100%; 
-   
-      &:focus { 
-        outline: none; 
-      } 
-    } 
-   
-    > button { 
-      background: transparent; 
-      border: none; 
-      cursor: pointer; 
-      font-size: 18px; 
-      color: #fff; 
-      transition: 0.2s; 
-      border-radius: 14px; 
-      margin-left: 2px; 
-      padding: 5px;
-   
-      &:hover { 
-        background: #ffffff22; 
-      } 
-    } 
+.body {
+  background: rgb(0, 91, 255);
+  padding: 3px;
+  border-radius: 16px;
+  display: flex;
+  align-items: flow;
+
+  >input {
+    border: none;
+    border-radius: 14px;
+    padding: 15px 8px;
+    font-size: 18px;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
   }
+
+  >button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    transition: 0.2s;
+    border-radius: 14px;
+    margin-left: 2px;
+    padding: 5px;
+
+    &:hover {
+      background: #ffffff22;
+    }
+  }
+}

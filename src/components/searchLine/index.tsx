@@ -13,6 +13,12 @@ export default function SearchLine({ className, onSearch }: SearchLineProps) {
     setQuery(event.target.value);
   };
 
+  const handleKeyDown = (event: any) => {
+    if (event.keyCode === 13) {
+      handleSearch();
+    }
+  };
+
   const handleSearch = () => {
     onSearch(query);
     setQuery("");
@@ -25,6 +31,7 @@ export default function SearchLine({ className, onSearch }: SearchLineProps) {
         placeholder="Искать на КупиТут"
         value={query}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
       />
       <button className={styles.button} onClick={handleSearch}>
         Поиск

@@ -1,23 +1,26 @@
-import Container from '@/components/container'
-import FavouritePage from '@/components/FavouritePage/FavouritePage'
-import Header from '@/components/Header/Header'
-import { supabase } from '@/lib/supabase'
-import { Product } from '@/types/product'
-import { PostgrestSingleResponse } from '@supabase/supabase-js'
-import { notFound } from 'next/navigation'
+'use client';
 
-export default async function Favourites() {
-	const { data }: PostgrestSingleResponse<Product[]> = await supabase
-		.from('products')
-		.select('*')
-		.order('id')
+import { useEffect } from 'react';
+import Container from '@/components/container';
+import FavouritePage from '@/components/FavouritePage/FavouritePage';
+import Header from '@/components/Header/Header';
+import { useProducts } from '@/hooks/useProducts';
 
-	return data ? (
+export default function Favourites() {
+	const { products, getProducts } = useProducts();
+
+	useEffect(() => {
+		getProducts(''); // Получаем все продукты
+	}, []);
+
+	const onSearch = (query: string) => {
+		getProducts(query);
+	};
+
+	return (
 		<Container>
-			<Header />
-			<FavouritePage products={data} />
+			<Header onSearch={onSearch} />
+			<FavouritePage products={products} />
 		</Container>
-	) : (
-		notFound()
-	)
+	);
 }

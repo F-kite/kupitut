@@ -14,8 +14,7 @@ export default function Container({
 				maxWidth: width,
 				marginLeft: 'auto',
 				marginRight: 'auto',
-				paddingLeft: 20,
-				paddingRight: 20,
+				padding: 20,
 			}}
 		>
 			{children}

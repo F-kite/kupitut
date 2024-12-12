@@ -51,7 +51,6 @@ export function LoginForm() {
 
       if (dataUser.user) {
         const { data: dataUser } = await supabase.auth.getUser();
-        console.debug("dataUser", dataUser);
         router.refresh();
         return { success: "Успешно" };
       }

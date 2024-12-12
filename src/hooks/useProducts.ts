@@ -1,10 +1,11 @@
+import { Product } from "@/types/product"
 import { supabase } from "@/lib/supabase"
 import { useState } from "react"
 
 export const useProducts = () => {
-    const [products, setProducts] = useState<any[]>([])
+    const [products, setProducts] = useState<Product[]>([])
 
-    const getProducts = async (query: any) => {
+    const getProducts = async (query: string) => {
         const searchQuery = query
 
         const { data, error } = await supabase

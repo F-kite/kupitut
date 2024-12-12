@@ -1,20 +1,26 @@
-import Container from '@/components/container'
-import Header from '@/components/Header/Header'
-import ShoppingCart from '@/components/ShoppingCart/ShoppingCart'
-import { supabase } from '@/lib/supabase'
-import type { Product } from '@/types/product'
-import type { PostgrestSingleResponse } from '@supabase/supabase-js'
+'use client';
+import { useEffect } from 'react';
+import Container from '@/components/container';
+import Header from '@/components/Header/Header';
+import { useProducts } from '@/hooks/useProducts';
+import ShoppingCart from '@/components/ShoppingCart/ShoppingCart';
 
-export default async function Cart() {
-	const { data }: PostgrestSingleResponse<Product[]> = await supabase
-		.from('products')
-		.select('*')
-		.order('id')
+export default function Favourites() {
+	const { products, getProducts } = useProducts();
+
+	useEffect(() => {
+		getProducts(''); // Получаем все продукты
+	}, []);
+
+	const onSearch = (query: string) => {
+		getProducts(query);
+	};
 
 	return (
 		<Container>
-			<Header />
-			<ShoppingCart products={data!} />
+			<Header onSearch={onSearch} />
+			<ShoppingCart products={products} />
 		</Container>
-	)
+	);
 }
+

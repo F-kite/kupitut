@@ -12,10 +12,6 @@ export async function middleware(req: NextRequest) {
 	const publicPaths = [
 		'/login',
 		'/register',
-		'/product/1',
-		'/favourites',
-		'/',
-		'/cart',
 	]
 
 	if (!session && !publicPaths.includes(req.nextUrl.pathname)) {
