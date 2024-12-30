@@ -1,29 +1,80 @@
 .body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
 
+	>.favorite {
+		position: absolute;
+		top: 5%;
+		left: 75%;
+	}
 
-    >.imgContainer {
-        border-radius: 10px;
-        width: 70%;
-        overflow: hidden;
+	>.imgContainer {
+		border-radius: 10px;
+		width: 70%;
+		height: 300px;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
 
-        >img {
-            width: 100%;
-        }
-    }
+		>img {
+			width: 100%;
+		}
+	}
 
-    .cardText {
-        width: 70%;
-        margin-top: 5px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 10px;
+	.cardText {
+		width: 70%;
+		margin-top: 5px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		gap: 10px;
 
-        >p {
-            margin: 0;
-        }
-    }
+		>p {
+			margin: 0;
+		}
+
+		>.button {
+			height: 40px;
+			border-radius: 8px;
+			background-color: rgb(76, 68, 108);
+			color: white;
+			font-weight: 400;
+			font-size: 16px;
+			cursor: pointer;
+			z-index: 1;
+
+			&:hover {
+				background-color: rgb(21, 37, 68);
+			}
+		}
+
+		>.buttonClicked {
+			height: 40px;
+			border-radius: 8px;
+			background-color: rgb(21, 37, 68);
+			color: white;
+			font-weight: 600;
+			font-size: 16px;
+			cursor: pointer;
+			z-index: 1;
+		}
+
+		>.price {
+			font-size: 25px;
+			font-weight: 500;
+		}
+
+		.name {
+			font-size: 16px;
+			min-height: 48px;
+		}
+	}
+}
+
+.cartBtn {
+	margin-top: 24px;
+	height: 54px;
+	font-size: 20px;
 }
